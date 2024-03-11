@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/',views.login,name="login" ),
     path('register/',views.register,name="register" ),
     path('profile/',views.profile,name="profile" ),
+    path('profile/account_setup/',views.account_setup,name="account_setup"),
     path('profile/invoice/',views.invoice,name="invoice"),
     path('profile/bookandhistory/',views.bookandhistory,name="bookandhistory"),
     path('profile/notification/',views.notification,name="notification" ),

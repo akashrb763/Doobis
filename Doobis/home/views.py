@@ -73,6 +73,10 @@ def bookandhistory(request):
 def invoice(request):
     return render(request,"dashboard/invoice.html")
 
+def account_setup(request):
+    return render(request,"dashboard/account_setup.html")
+
+
 
 
 # settings page tabs
