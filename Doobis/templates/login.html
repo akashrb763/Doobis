@@ -1,0 +1,467 @@
+{% load static %}
+
+
+{% load i18n %}
+{% load account socialaccount %}
+{% providers_media_js %}
+
+{% load crispy_forms_filters %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="google-signin-client_id" content="30699757078-cteqh8bqt7d0arbijvmpea7ukv3386rs.apps.googleusercontent.com">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Doobis - Businesses for Sale</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/Doobis_footerlogo.png' %}" rel="icon">
+  <!-- <link href="{% static 'assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <link href="{% static 'assets/css/register.css' %}" rel="stylesheet">
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> 
+ <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/loader.css' %}" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/2+h5Z6H8/Cm3Kx04E4P5K5evoEH3Sl0sibVJfX" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha384-Ed5WMHVg6Lr+I6z7iu0nrr9YfAN+n2HsyI/cpGp26jcjpm5+t4q+oOVXsi4tizda" crossorigin="anonymous"></script> -->
+
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
+
+
+
+<!-- Bootstrap CSS -->
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<!-- jQuery -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+<!-- Bootstrap JS (Popper.js included) -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  function onSuccess(googleUser) {
+    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+  }
+  function onFailure(error) {
+    console.log(error);
+  }
+  function renderButton() {
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
+  }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+
+  
+
+  <!-- =======================================================
+  * Template Name: Scaffold
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <!-- <script>
+    const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+  </script> -->
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal fade modal-md"  id="register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+
+      <div class="modal-content" >
+          
+          <button type="button" class="btn-close  position-absolute top-0 end-0 m-2" id="modal-closer"  data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <div class="modal-header">
+          <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+         
+          <!--===========nav===============-->
+          <ul class="nav nav-pills" id="myTab" role="tablist" >
+            <li class="nav-item " role="presentation">
+              <button class="nav-link tab-panel" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"  role="tab" aria-controls="home-tab-pane" aria-selected="true" >Social</button>
+            </li>
+            <li class="nav-item " role="presentation">
+              <button class="nav-link active tab-panel" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"  role="tab" aria-controls="profile-tab-pane" aria-selected="false" >Login</button>
+            </li>
+            <li class="nav-item " role="presentation">
+              <button class="nav-link tab-panel" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"  role="tab" aria-controls="contact-tab-pane" aria-selected="false" >Register</button>
+            </li>
+            
+          </ul>
+          <!--===========endnav===============-->
+        
+        </div>
+        
+        <div class="modal-body" style="height: 315px;">
+          
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+              
+              <div id="my-signin2"></div>
+
+              
+              
+              
+
+              
+              
+                       
+            </div>
+
+            <div class="tab-pane  fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+              <div style="padding-top: 10px;">
+
+              <form role="form">
+                <div class="form-group mb-4" style="width: 70%;margin-left: 15%;">
+                  <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+                  <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                </div>
+                <div class="form-group" style="width: 70%;margin-left: 15%;">
+                  <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                  <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                </div>
+                
+                <div class=""style="text-align:right;width: 90%;">
+                  <a href="#">Forgot your password?</a>
+                </div>
+                <div class="mt-3" style="text-align: center;">
+                  <button type="submit" class="" id="login_btn" > Login</button>
+                </div>
+              </form>
+
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+              <div class="" style="padding-top: 10px;">
+
+              <form role="form" >
+                <div class="form-group  mb-4" style="width: 70%;margin-left: 15%;">
+                  <label for="usrname" > Email</label>
+                  <input type="text" class="form-control " id="usrname" placeholder="Enter email" >
+                </div>
+
+                <div class="form-group  mb-4" style="width: 70%;margin-left: 15%;">
+                  <label for="psw" > Password</label>
+                  <input type="password" class="form-control " name="password" id="psw" placeholder="Enter password" >
+                </div>
+
+                <div class="form-group " style="width: 70%;margin-left: 15%;">
+                  <label for="psw1" > Repeat Password</label>
+                  <input type="password" class="form-control " name="cpassword" id="psw1" placeholder="Repeat password" >
+                </div>
+                
+                
+                <div class="mt-3" style="text-align: center;">
+                  <button type="submit" class="" id="reg_btn" >Register</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--========footer=========-->
+        <div class="modal-footer">
+          
+          <div style="margin-left: 0;">Who uses Doobis?</div>
+        </div>
+        <!--========endfooter=========-->
+      </div>
+    </div>
+  </div>
+
+    <!--=========== loader ==============-->
+    <div class="loader" id="loader"></div>
+
+    <!--=========================-->
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <!-- <h1><a href="/">Scaffold</a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="/"><img src="{% static 'img/Doobis_logo.png' %}" alt="Doobis_logo" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+              <li><a class="nav-link scrollto" href="#"><span> Businesses for Sale</span></a></li>
+
+              <li><a class="nav-link scrollto" href="#team">Franchises</a></li>
+              <li><a class="nav-link scrollto" href="#testimonials">Investors & Buyers</a></li>
+            
+              <li class="dropdown"><a href="#"><span>How To</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">Sell Your Business</a></li>
+                  <li><a href="#">Find Investors</a></li>
+                  <li><a href="#">Franchise Your Business</a></li>
+                  <li><a href="#">Buy a Business</a></li>
+                  <li><a href="#">Invest in a Business</a></li>
+                  <li><a href="#">Value a Business</a></li>
+                  <li><a href="#">Create Info Memorandum</a></li>
+                </ul>
+              </li>
+            
+         
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+          <li><a class="nav-link scrollto " href="#pricing" style="color: red;">{{request.user.username}}</a></li>
+          {% if user.is_authenticated %}
+            <a class="btn btn-danger" href="accounts/logout">logout</a>
+            {% endif %}
+          <!-- <a class=" btn " id="login_btn" data-bs-toggle="modal" data-bs-target="#register" style="margin-left:10px;color:#fff;padding-left:0;text-align:center;max-width: 80px;"><i class="" style="color: #000000;padding:5px;">Register</i></a> -->
+          <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+          
+        </ul>
+
+        
+
+
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+ 
+
+ <!-- Login 11 - Bootstrap Brain Component -->
+<section class="py-3 py-md-5 py-xl-8">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-5">
+          <h2 class="display-5 fw-bold text-center">Sign in</h2>
+          <p class="text-center m-0">Don't have an account? <a href="{% url 'home:register' %}">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-8">
+        <div class="row gy-5 justify-content-center">
+          <div class="col-12 col-lg-5">
+            <form action="#!">
+              <div class="row gy-3 overflow-hidden">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control border-0 border-bottom rounded-0" name="email" id="email" placeholder="name@example.com" required>
+                    <label for="email" class="form-label">Email</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control border-0 border-bottom rounded-0" name="password" id="password" value="" placeholder="Password" required>
+                    <label for="password" class="form-label">Password</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row justify-content-between">
+                    <div class="col-6">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me">
+                        <label class="form-check-label text-secondary" for="remember_me">
+                          Remember me
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="text-end">
+                        <a href="#!" class="link-secondary text-decoration-none " data-bs-toggle="modal" data-bs-target="#forgotpassword" >Forgot password?</a>
+
+                        <!-- forgot password -->
+
+                          <div class="modal fade" id="forgotpassword" data-bs-backdrop="false" role="dialog" aria-labelledby="exampleModalLabel"
+                          aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                              <div class="modal-content">
+                              
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <!-- <h3>Enter Your Email Id</h3>  -->
+                                <a type="" class="btn close" data-bs-dismiss="modal" >&times;</a>
+
+                                </div>
+                                
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                  <div class="container">
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        
+                                        <div class="input-group">
+                                        
+                                        <input class="form-control" type="email" placeholder="ex:-jhon@gmail.com" name="email" required>
+                                        <a class="btn " id="login_btn" type="submit" style="width: 100px;">Submit</a>
+                                    </div>
+                                    <!-- <label>Email id </label>
+                                    <div class="input-group">
+                                      
+                                      <input type="email" id="forgottpassword" class="form-control" placeholder="ex:-jhon@gmail.com" name="email">
+                                      <span class="input-group-btn">
+                                        <a class="btn btn-primary" type="submit">Submit</a>
+                                      </span>
+                                    </div> -->
+                                    </form>
+                                </div>
+
+                                  
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- endforgot password -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn  btn-lg" id="login_btn" type="submit" style="width: 100%;">Log in</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-12 col-lg-2 d-flex align-items-center justify-content-center gap-3 flex-lg-column">
+            <div class="bg-dark h-100 d-none d-lg-block" style="width: 1px; --bs-bg-opacity: .1;"></div>
+            <div class="bg-dark w-100 d-lg-none" style="height: 1px; --bs-bg-opacity: .1;"></div>
+            <div>or</div>
+            <div class="bg-dark h-100 d-none d-lg-block" style="width: 1px; --bs-bg-opacity: .1;"></div>
+            <div class="bg-dark w-100 d-lg-none" style="height: 1px; --bs-bg-opacity: .1;"></div>
+          </div>
+          <div class="col-12 col-lg-5 d-flex align-items-center">
+            <div class="d-flex gap-3 flex-column w-100 ">
+              <div class="text-center">
+                
+            
+                {% get_providers as socialaccount_providers %}
+            
+                {% if socialaccount_providers %}
+                
+            
+                <div class="socialaccount_ballot">
+            
+                  <div class="socialaccount_providers">
+                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                  </div>
+            
+                  
+            
+                </div>
+            
+                {% include "socialaccount/snippets/login_extra.html" %}
+            
+                {% else %}
+                <p>{% blocktrans %}If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+                {% endif %}
+              </div>
+              
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <script src="{% static 'assets/js/register.js' %}"></script>
+
+
+</body>
+</html>

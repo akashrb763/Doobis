@@ -1,0 +1,54 @@
+<div id="g_id_onload"
+                  data-client_id="30699757078-boobq1rhtnio2fs5g214ol6c4on9sra5.apps.googleusercontent.com"
+                  data-context="use"
+                  data-ux_mode="popup"
+                  data-login_uri="http://127.0.0.1:8000/"
+                  data-nonce=""
+                  data-auto_prompt="false">
+             </div>
+             
+             <div class="g_id_signin"
+                  data-type="standard"
+                  data-shape="rectangular"
+                  data-theme="outline"
+                  data-text="signin_with"
+                  data-size="medium"
+                  data-logo_alignment="left">
+             </div>
+
+
+
+
+
+
+<div id="my-signin2"></div>
+              <script>
+                function onSuccess(googleUser) {
+                  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                }
+                function onFailure(error) {
+                  console.log(error);
+                }
+                function renderButton() {
+                  gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                  });
+                }
+              </script>
+              <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+
+
+
+
+
+
+{% providers_media_js %}
+
+             <a href="{% provider_login_url 'google' %}">Sign up with Google</a>
