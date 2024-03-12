@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'home',
+    'franchise',
+
     # 'accounts',
     'crispy_forms',
     'crispy_bootstrap5',
