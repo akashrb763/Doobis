@@ -146,6 +146,9 @@ DATABASES = {
     }
 }
 
+# replacing the auth user
+AUTH_USER_MODEL = 'home.CustomUser'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -211,7 +214,8 @@ SOCIALACCOUNT_PROVIDERS = {
             'name',
             'name_format',
             'picture',
-            'short_name'
+            'short_name',
+            'phone_number'
         ],
         'EXCHANGE_TOKEN': True,
         'VERSION': 'v13.0',
@@ -232,13 +236,13 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-# google
-# 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 
 
-# 388922697077671
-# 7e2e504c8cc13feba273b8909cc41e29
+
+
+
 
 SITE_ID=1
+
 
 AUTHENTICATION_BACKENDS = [
     

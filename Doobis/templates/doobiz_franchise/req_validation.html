@@ -145,8 +145,8 @@
 </head>
 <body>
 
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="col-md-12" style="text-align: center;width: 100%;">
+    <div class="container rounded bg-white mt-5 mb-5 " style="height: 60vh;">
+        <div class="col-md-12 mt-5 mb-0" style="text-align: center;width: 100%;">
             
 
             <div id="steps">
@@ -160,51 +160,36 @@
         <div class="row">
             
 
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-12 col-sm-12 mt-5">
                 <div class="p-3 py-5">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Doobiz Franchise Request</h4>
+                        <h4 class="text-right"></h4>
                     </div>
-                    
-                    <form action="{% url 'doobiz_franchise:doobiz_franch_acc_setup' %}" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
                     <div class="row mt-3 py-4" style="background-color: #f4f5f6;border-radius: 5px;">
+                        <div style="text-align: center;">
+                            <i class="fa-solid fa-clock-rotate-left" style="font-size: clamp(50px,8vw,100px);color: rgb(2, 2, 2);"></i>
 
+                            <div class="mt-3">
+                                <p>Please Wait For Call Verification</p>
+                                <!-- <p>Please Wait For Feild Verification</p>
+                                <p>Please Wait For Call Verification</p>
+                                <p>Please Wait For Call Verification</p>
+                                <p>Please Wait For Call Verification</p> -->
+                                
+                            </div>
+                        </div>
                         
-                        <div class="col-md-6 mt-3"><label class="labels">Authorized Person Name<sup>(As per Proof)</sup></label><input type="text" class="form-control" placeholder="Name" value="" name="name"></div>
-                        <div class="col-md-6 mt-3"><label class="labels"  for="phone">Mobile Number</label><br>
-                        <input name="phone" class="form-control" id="phone" type="tel"  placeholder="" value="" maxlength="">
-                        </div>
-                        <!-- <div class="col-md-6"><label class="labels">official email</label><input type="email" class="form-control" placeholder="enter address line 2" value=""></div> -->
-                        <div class="col-md-6 mt-3"><label class="labels">Address</label><input type="text" class="form-control" placeholder="enter address " value="" name="address"></div>
-                        <div class="col-md-6 mt-3"><label class="labels">PIN Code</label><input type="tel" class="form-control" placeholder="enter pin code" value="" maxlength="6" name="pin"></div>
-                        <div class="col-md-6 mt-3"><label class="labels">Choose Your Proof</label>
-                            <select class="form-control" required name="proof">
-                                <option disabled selected>select one</option>
-                                <option value="Driving licence">Driving licence</option>
-                                <option value="National identity card">National identity card</option>
-                                <option value="Passport">Passport</option>
-                                <option value="Aadhaar Card/e-Aadhaar">Aadhaar Card/e-Aadhaar</option>
-                                <option value="PAN card">PAN card</option>
-                            
-                            </select>
-                        </div>
-                        <div class="col-md-6 mt-3"><label class="labels">Upload Proof</label>
-                            <input type="file" class="form-control" >
-                        </div>
 
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Submit Request</button></div>
                         
                     </div>
-                </form>
+                
                    
                 </div>
             </div>
             
         </div>
     </div>
-    </div>
-    </div>
+    
  
     
 

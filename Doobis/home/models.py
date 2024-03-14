@@ -1,105 +1,120 @@
 
 # Create your models here.
-# from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
-# from django.db import models
-# from django.utils import timezone
-# from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
-# class Category(models.Model):
-#     account_category = models.CharField(max_length=50)
     
 
-# class CustomUserManager(BaseUserManager):
-#     def create_user(self, username, phone_number, password=None, **extra_fields):
-#         if not username:
-#             raise ValueError('The Username must be set')
-#         if not phone_number:
-#             raise ValueError('The Phone Number must be set')
+class CustomUserManager(BaseUserManager):
+    def create_user(self, username, phone_number, password=None, **extra_fields):
+        if not username:
+            raise ValueError('The Username must be set')
+        if not phone_number:
+            raise ValueError('The Phone Number must be set')
 
-#         user = self.model(
-#             username=username,
-#             phone_number=phone_number,
-#             **extra_fields
-#         )
-#         user.set_password(password)
-#         user.save(using=self._db)
-#         return user
+        user = self.model(
+            username=username,
+            phone_number=phone_number,
+            **extra_fields
+        )
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
-#     def create_superuser(self, username, phone_number, password=None, **extra_fields):
-#         extra_fields.setdefault('is_staff', True)
-#         extra_fields.setdefault('is_superuser', True)
+    # def create_user(self, email, password=None, **extra_fields):
+    #     if not email:
+    #         raise ValueError(_('The Email must be set'))
+        
+    #     email = self.normalize_email(email)
+    #     user = self.model(email=email, **extra_fields)
+    #     user.set_password(password)
+    #     user.save(using=self._db)
+    #     return user
 
-#         if extra_fields.get('is_staff') is not True:
-#             raise ValueError('Superuser must have is_staff=True.')
-#         if extra_fields.get('is_superuser') is not True:
-#             raise ValueError('Superuser must have is_superuser=True.')
+    def create_superuser(self, username, phone_number, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
 
-#         return self.create_user(username, phone_number, password, **extra_fields)
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+        return self.create_user(username, phone_number, password, **extra_fields)
 
 
-# class CustomUser(AbstractBaseUser, PermissionsMixin):
-#     id = models.AutoField(primary_key=True)
-#     full_name = models.CharField(max_length=255)
-#     first_name = models.CharField(max_length=255)
-#     last_name = models.CharField(max_length=255)
-#     username = models.CharField(max_length=150, unique=True)
-#     age = models.IntegerField(blank=True, null=True)
-#     phone_number = models.CharField(max_length=15, unique=True)
-#     email = models.EmailField(unique=True)
-#     official_email = models.EmailField(blank=True)
-#     status = models.CharField(max_length=50,blank=True, null=True)
-#     verified = models.BooleanField(default=False)
-#     gender = models.CharField(max_length=10,blank=True,null=True)
-#     registered_date = models.DateTimeField(default=timezone.now)
-#     last_login = models.DateTimeField(null=True, blank=True)
-#     terms_and_conditions = models.BooleanField(default=False,blank=True, null=True)
-#     verify_paid=models.BooleanField(default=False)
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    # account_type= models.ForeignKey(Account_Type,on_delete=models.CASCADE)
+    ACCOUNT_TYPE = (
+        ("Bussiness Buyer","Bussiness Buyer"),
+        ("Bussiness Invester","Bussiness Invester"),
+        ("Doobiz Franchaise","Doobiz Franchaise")
+    )
 
-#     is_staff = models.BooleanField(default=False)
-#     is_active = models.BooleanField(default=True)
 
-#     profile_picture = models.ImageField(upload_to='profile_pictures', blank=True, null=True)
-#     cover_picture = models.ImageField(upload_to='cover_pictures', blank=True, null=True)
-#     bio = models.TextField(blank=True)
-#     work = models.CharField(max_length=255, blank=True)
-#     education = models.CharField(max_length=255, blank=True)
-#     place = models.CharField(max_length=255, blank=True)
+    account_type = models.CharField(max_length = 20,choices = ACCOUNT_TYPE)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    username = models.CharField(max_length=150, unique=True)
+    # age = models.IntegerField(blank=True, null=True)
+    phone_number = models.IntegerField( blank=True,null=True)
+    email = models.EmailField(unique=True)
+    official_email = models.EmailField(blank=True)
+    status = models.CharField(max_length=50,blank=True, null=True)
+    verified = models.BooleanField(default=False)
+    
+    registered_date = models.DateTimeField(default=timezone.now)
+    last_login = models.DateTimeField(null=True, blank=True)
+    terms_and_conditions = models.BooleanField(default=False,blank=True, null=True)
+    # verify_paid=models.BooleanField(default=False)
+
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    profile_picture = models.ImageField(upload_to='profile_pictures', blank=True, null=True)
+    cover_picture = models.ImageField(upload_to='cover_pictures', blank=True, null=True)
+    # bio = models.TextField(blank=True)
+    # work = models.CharField(max_length=255, blank=True)
+    # education = models.CharField(max_length=255, blank=True)
+    place = models.CharField(max_length=255, blank=True)
     
 
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = ['name', 'phone_number', 'email']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = [ 'phone_number', 'username']
 
-#     objects = CustomUserManager()
+    objects = CustomUserManager()
 
-#     def __str__(self):
-#         return self.username
+    def __str__(self):
+        return self.username
 
-#     class Meta:
-#        permissions = [
-#             ('can_view_customuser', 'Can view custom users'),
-#             ('can_change_customuser', 'Can change custom users'),
-#             ('can_delete_customuser', 'Can delete custom users'),
-#         ]
+    class Meta:
+       permissions = [
+            ('can_view_customuser', 'Can view custom users'),
+            ('can_change_customuser', 'Can change custom users'),
+            ('can_delete_customuser', 'Can delete custom users'),
+        ]
 
-#     user_permissions = models.ManyToManyField(
-#         Permission,
-#         verbose_name=_('user permissions'),
-#         blank=True,
-#         related_name='customuser_permissions',
-#         related_query_name='customuser_permission',
-#     )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name=_('user permissions'),
+        blank=True,
+        related_name='customuser_permissions',
+        related_query_name='customuser_permission',
+    )
 
-#     groups = models.ManyToManyField(
-#         Group,
-#         verbose_name=_('groups'),
-#         blank=True,
-#         related_name='customuser_groups',
-#         related_query_name='customuser_group',
-#         help_text=_(
-#             'The groups this user belongs to. A user will get all permissions '
-#             'granted to each of their groups.'
-#         ),
-#     )
+    groups = models.ManyToManyField(
+        Group,
+        verbose_name=_('groups'),
+        blank=True,
+        related_name='customuser_groups',
+        related_query_name='customuser_group',
+        help_text=_(
+            'The groups this user belongs to. A user will get all permissions '
+            'granted to each of their groups.'
+        ),
+    )
 
 
 # class UserPropose(models.Model):

@@ -19,3 +19,8 @@ def doobiz_franch_acc_setup(request):
         print(proof)
        
     return render(request,"doobiz_franchise/account_setup.html")
+
+def req_validation(request):
+    
+       
+    return render(request,"doobiz_franchise/req_validation.html")
