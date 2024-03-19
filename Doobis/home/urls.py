@@ -8,6 +8,12 @@ urlpatterns = [
     path('',views.home,name="home" ),
     path('login/',views.login,name="login" ),
     path('register/',views.register,name="register" ),
+    
+    path('acc_setup/',views.acc_setup,name="acc_setup" ),
+    path('get_states/', views.get_states, name='get_states'),
+    path('get_cities/', views.get_cities, name='get_cities'),
+    
+    path('activate/<str:uidb64>/<str:token>/', views.activate, name='activate'),
     path('profile/',views.profile,name="profile" ),
     path('profile/account_setup/',views.account_setup,name="account_setup"),
     path('profile/invoice/',views.invoice,name="invoice"),
