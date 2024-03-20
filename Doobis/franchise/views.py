@@ -20,6 +20,7 @@ def doobiz_franch_acc_setup(request):
        
     return render(request,"doobiz_franchise/account_setup.html")
 
+# franchaise req validate cheyyunnu
 def req_validation(request):
     
        

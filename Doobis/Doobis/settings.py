@@ -52,6 +52,8 @@ INSTALLED_APPS = [
 
     'home',
     'franchise',
+    'bussiness_invester',
+    'bussiness_seeker',
 
     # 'accounts',
     'crispy_forms',
@@ -62,6 +64,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
+
+    'cities_light',
 
     
 

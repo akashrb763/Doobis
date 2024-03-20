@@ -5,6 +5,11 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+
+class Address(models.Model):
+   country = models.ForeignKey('cities_light.Country', on_delete=models.SET_NULL, null=True, blank=True) 
+   city = models.ForeignKey('cities_light.City', on_delete=models.SET_NULL, null=True, blank=True)
+
     
 
 class CustomUserManager(BaseUserManager):
@@ -53,7 +58,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         ("Doobiz Franchaise","Doobiz Franchaise")
     )
 
-
+    # uid = models.IntegerField(unique=True, null=False, blank=False)
     account_type = models.CharField(max_length = 20,choices = ACCOUNT_TYPE)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
@@ -61,7 +66,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # age = models.IntegerField(blank=True, null=True)
     phone_number = models.IntegerField( blank=True,null=True)
     email = models.EmailField(unique=True)
-    official_email = models.EmailField(blank=True)
+    official_email = models.EmailField(blank=True,null=True)
     status = models.CharField(max_length=50,blank=True, null=True)
     verified = models.BooleanField(default=False)
     
@@ -78,16 +83,30 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # bio = models.TextField(blank=True)
     # work = models.CharField(max_length=255, blank=True)
     # education = models.CharField(max_length=255, blank=True)
-    place = models.CharField(max_length=255, blank=True)
+    location = models.CharField(max_length=255, blank=True,null=True)
+    address = models.CharField(max_length=120, blank=True,null=True)
+    postcode = models.CharField(max_length=10,blank=True,null=True)
+    # country = models.CharField(max_length=30, blank=True,null=True)
+    
+    country = models.ForeignKey('cities_light.Country', on_delete=models.SET_NULL, null=True, blank=True) 
+    state = models.ForeignKey('cities_light.Region', on_delete=models.SET_NULL, null=True, blank=True)
+    city = models.ForeignKey('cities_light.City', on_delete=models.SET_NULL, null=True, blank=True)
+
     
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [ 'phone_number', 'username']
+    REQUIRED_FIELDS = [ 'phone_number']
 
     objects = CustomUserManager()
 
     def __str__(self):
         return self.username
+    
+    # def save(self, *args, **kwargs):
+    #     if not self.uid:
+    #         last_uid = CustomUser.objects.aggregate(models.Max('uid'))['uid__max'] or 99999
+    #         self.uid = last_uid + 1
+    #     super().save(*args, **kwargs)
 
     class Meta:
        permissions = [

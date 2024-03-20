@@ -1,0 +1,2 @@
+site/Lib/site-packages/cities_light/data/alternateNames.zip filter=lfs diff=lfs merge=lfs -text
+site/Lib/site-packages/cities_light/data/alternateNames.txt filter=lfs diff=lfs merge=lfs -text

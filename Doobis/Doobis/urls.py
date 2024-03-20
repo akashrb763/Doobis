@@ -26,6 +26,8 @@ urlpatterns = [
     path('accounts/', include('allauth.socialaccount.urls')),
     path('', include('home.urls')),
     path('doobiz_franchise/', include('franchise.urls')),
+    path('bussiness_seeker/', include('bussiness_seeker.urls')),
+    path('bussiness_invester/', include('bussiness_invester.urls')),
 ]
 
 if settings.DEBUG:
