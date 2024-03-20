@@ -58,7 +58,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         ("Doobiz Franchaise","Doobiz Franchaise")
     )
 
-    # uid = models.IntegerField(unique=True,null=False,blank=False)
+    # uid = models.IntegerField(unique=True, null=False, blank=False)
     account_type = models.CharField(max_length = 20,choices = ACCOUNT_TYPE)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
@@ -101,6 +101,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+    
+    # def save(self, *args, **kwargs):
+    #     if not self.uid:
+    #         last_uid = CustomUser.objects.aggregate(models.Max('uid'))['uid__max'] or 99999
+    #         self.uid = last_uid + 1
+    #     super().save(*args, **kwargs)
 
     class Meta:
        permissions = [

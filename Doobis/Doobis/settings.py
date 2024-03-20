@@ -52,6 +52,8 @@ INSTALLED_APPS = [
 
     'home',
     'franchise',
+    'bussiness_invester',
+    'bussiness_seeker',
 
     # 'accounts',
     'crispy_forms',

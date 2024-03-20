@@ -1,0 +1,517 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{% static 'assets/css/profile.css' %}" rel="stylesheet">
+    <title>Document</title>
+
+ 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+   <link href="{% static 'assets/css/dashbord.css' %}" rel="stylesheet">
+  
+
+     <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> 
+ <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/loader.css' %}" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/2+h5Z6H8/Cm3Kx04E4P5K5evoEH3Sl0sibVJfX" crossorigin="anonymous"></script>
+
+  
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  
+
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+       <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  -->
+      <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <style>
+
+.page-heading {
+    position: relative;
+    padding: 30px 40px;
+    margin: -25px -20px 25px;
+    border: 1px solid #211f1ff2;
+    background-color: #fffffff7;
+  }
+
+  
+  .media {
+    color: #999999;
+    font-weight: 600;
+    margin-top: 15px;
+  }
+  .media:first-child {
+    margin-top: 0;
+  }
+  .media-right,
+  .media > .pull-right {
+    padding-left: 10px;
+  }
+  
+  .media-left,
+  .media-right,
+  .media-body {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .media-middle {
+    vertical-align: middle;
+  }
+  .media-bottom {
+    vertical-align: bottom;
+  }
+  .media-heading {
+    color: #555555;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .media-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  /* accounts page */
+
+
+  .accounts_tab{
+  display: inline-block;
+  /* background-color: springgreen; */
+  width: 100%;
+  text-align:left;
+  /* justify-content: center; */
+  height: 100%;
+  
+  
+}
+.acc_tab_txt{
+  background-color: rgb(255, 255, 255);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  /* font-weight: bold; */
+  justify-items: center;
+  margin: 0px;
+  
+  width: 100%;
+  
+   
+  
+}
+/* .acc_tab_txt:hover{
+  background-color: rgb(13, 17, 75);
+} */
+.activ{
+  background-color: rgb(255, 103, 9);
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  /* font-weight: bold; */
+  justify-items: center;
+  margin: 0px;
+  
+  width: 100%;
+
+}
+
+
+/* notification */
+
+.pro_notify{
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+/* .cd_notify:hover{
+  box-shadow: #767676 1px 0px 3px 2px;
+
+} */
+
+
+.pro_notify span{
+  justify-self: end;
+  
+}
+
+
+
+.notify{
+  /* width: 3px; */
+  font-size: 6px;
+  height: 7px;
+  border-radius: 10rem;
+  box-shadow: #767676  0px 0px 4px 1px;
+  background-color: #76d041;
+ 
+  
+  
+}
+
+   
+
+
+  </style>
+    
+  </head>
+  
+  <body>
+
+    <!-- Modal -->
+  <div class="modal fade modal-md"  id="sign_out" tabindex="-1" aria-labelledby="sign_out_label" aria-hidden="true" >
+    <div class="modal-dialog">
+
+      <div class="modal-content" >
+          
+          <button type="button" class="btn-close  position-absolute top-0 end-0 m-2" id="modal-closer"  data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="sign_out_label">Sign Out</h1>
+        </div>
+        <div class="modal-body" >
+          
+          <span>You will Be sign out From Doobiz Are You Sure?</span>
+        </div>
+
+        <!--========footer=========-->
+        <div class="modal-footer">
+          
+          <div style="margin-left: 0;">
+            <a class="btn btn-primary btn-md" id="modal-closer"  data-bs-dismiss="modal" aria-label="Close">Cancel</a>
+            <a class="btn btn-danger btn-md">Ok</a>
+          </div>
+        </div>
+        <!--========endfooter=========-->
+      </div>
+    </div>
+  </div>
+  
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <!-- <h1><a href="/">Scaffold</a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="/"><img src="{% static 'img/Doobis_logo.png' %}" alt="Doobis_logo" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+              <li><a class="nav-link scrollto" href="#"><span> Businesses for Sale</span></a></li>
+
+              <li><a class="nav-link scrollto" href="#team">Franchises</a></li>
+              <li><a class="nav-link scrollto" href="#testimonials">Investors & Buyers</a></li>
+            
+              <li class="dropdown"><a href="#"><span>How To</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">Sell Your Business</a></li>
+                  <li><a href="#">Find Investors</a></li>
+                  <li><a href="#">Franchise Your Business</a></li>
+                  <li><a href="#">Buy a Business</a></li>
+                  <li><a href="#">Invest in a Business</a></li>
+                  <li><a href="#">Value a Business</a></li>
+                  <li><a href="#">Create Info Memorandum</a></li>
+                </ul>
+              </li>
+            
+         
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          {% if user.is_authenticated %}
+          <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#sign_out" style="margin-left:10px;color:#fff;padding-left:0;text-align:center;max-width: 80px;"><i class="" style="color: #ffffff;padding:5px;font-size: 14px;padding-left: 8px;">Logout</i></a>
+          {% endif %}
+        
+          
+          
+          
+        </ul>
+
+        
+
+
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+
+
+          
+    </div>
+  </header><!-- End Header -->
+  
+  <!-- profile-->
+  
+  <div class="container" style="margin-top:clamp(110px,4vw,250px);width:100%;">
+    
+    <div class="mb-4">
+      <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" >
+        <i class="fa-solid fa-bars" style="color: #ec3118;"></i>
+      </button>
+    </div>
+      
+      <div class="offcanvas offcanvas-start " tabindex="-1" data-bs-backdrop="static" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="max-width: 280px;">
+        <div class="offcanvas-header">
+          {% if user.is_authenticated %}
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Hi @{{user.username}}</h5>
+          
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="padding: 0px;">
+            
+            <ul class="nav nav-tabs   accounts_tab" >
+                <a  class="  " href="/" style="text-decoration: none;color: rgb(255, 103, 9);"><li class="acc_tab_txt"><i class="fa-solid fa-house" style="margin-right: 15px;"></i>Home</li></a>
+                <a  class="   "  href="{% url 'bussiness_seeker:bussiness_seeker_profile' %}" style="text-decoration: none;color: rgb(255, 103, 9);" ><li class=" acc_tab_txt" data-bs-dismiss="offcanvas"><i class="fa-solid fa-user" style="margin-right: 15px;"></i>Profile</li></a>
+                <a  class="   "  href="{% url 'bussiness_seeker:bussiness_seeker_invoice' %}" style="text-decoration: none;color: rgb(255, 103, 9);" ><li class="acc_tab_txt" data-bs-dismiss="offcanvas"><i class="fa-regular fa-credit-card" style="margin-right: 15px;"></i>Invoice</li></a>
+                <a  class="   "  href="{% url 'bussiness_seeker:bussiness_seeker_bookandhistory' %}" style="text-decoration: none;color: rgb(255, 103, 9);" ><li class="acc_tab_txt" data-bs-dismiss="offcanvas"><i class="fa-solid fa-bookmark" style="margin-right: 15px;"></i>Bookmark & History</li></a>
+                <a  class="  "  href="#" style="text-decoration: none;" ><li class=" activ" data-bs-dismiss="offcanvas"><i class="fa-regular fa-bell" style="margin-right: 15px;"></i>Notifications</li></a>
+                <a class=" "   href="{% url 'bussiness_seeker:bussiness_seeker_profile_edit' %}" style="text-decoration: none;color: rgb(255, 103, 9);" ><li class=" acc_tab_txt" data-bs-dismiss="offcanvas"><i class="fa-solid fa-gear" style="margin-right: 15px;"></i>Settings</li></a>
+            </ul>
+           
+          
+        </div>
+      </div>
+  
+  
+        
+    <div class="col-md-12 mt-2">
+          <div class="tab-content " >
+             
+            <div class="container">
+            
+            <!-- notifications -->
+            <div id="Notifications" class="">
+              <h3>Notifications</h3>
+              <div class="container-fluid">
+                <!-- notification card -->
+                <div class="card cd_notify">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12" >
+
+                        <div class="badge rounded-pill  notifys" > </div><h5 style="font-size: clamp(11px,4vw,20px);"> New login from <em><strong>oppo F15</strong></em></h5>
+
+                      </div>
+                      <p style="font-size: clamp(10px,4vw,15px);margin-left: 15px;">You were logged in from a device</p>
+
+
+                      <div  class="col-md-12">
+                        <div class="pro_notify" >
+                          
+                          <span   style="font-size: 11px;">25/09/2023 </span>
+                          <span></span>
+                          <span   style="font-size: 11px;"> 10:45 a.m</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+                <hr>
+  
+                 <!-- notification card -->
+                 <div class="card cd_notify">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12" >
+
+                        <div class="badge rounded-pill  notify" > </div><h5 style="font-size: clamp(11px,4vw,20px);"> New login from <em><strong>oppo F15</strong></em></h5>
+
+                      </div>
+                      <p style="font-size: clamp(10px,4vw,15px);margin-left: 15px;">You were logged in from a device</p>
+
+
+                      <div  class="col-md-12">
+                        <div class="pro_notify" >
+                          
+                          <span   style="font-size: 11px;">25/09/2023 </span>
+                          <span></span>
+                          <span   style="font-size: 11px;"> 10:45 a.m</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+                <hr>
+  
+                 <!-- notification card -->
+                 <div class="card cd_notify">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12" >
+
+                        <div class="badge rounded-pill  notify" > </div><h5 style="font-size: clamp(11px,4vw,20px);"> New login from <em><strong>oppo F15</strong></em></h5>
+
+                      </div>
+                      <p style="font-size: clamp(10px,4vw,15px);margin-left: 15px;">You were logged in from a device</p>
+
+
+                      <div  class="col-md-12">
+                        <div class="pro_notify" >
+                          
+                          <span   style="font-size: 11px;">25/09/2023 </span>
+                          <span></span>
+                          <span   style="font-size: 11px;"> 10:45 a.m</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+                <hr>
+
+                 <!-- notification card -->
+                 <div class="card cd_notify">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12" >
+
+                        <div class="badge rounded-pill  notifys" > </div><h5 style="font-size: clamp(11px,4vw,20px);"> New login from <em><strong>oppo F15</strong></em></h5>
+
+                      </div>
+                      <p style="font-size: clamp(10px,4vw,15px);margin-left: 15px;">You were logged in from a device</p>
+
+
+                      <div  class="col-md-12">
+                        <div class="pro_notify" >
+                          
+                          <span   style="font-size: 11px;">25/09/2023 </span>
+                          <span></span>
+                          <span   style="font-size: 11px;"> 10:45 a.m</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+                <hr>
+
+                 <!-- notification card -->
+                 <div class="card cd_notify">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12" >
+
+                        <div class="badge rounded-pill  notify" > </div><h5 style="font-size: clamp(11px,4vw,20px);"> New login from <em><strong>oppo F15</strong></em></h5>
+
+                      </div>
+                      <p style="font-size: clamp(10px,4vw,15px);margin-left: 15px;">You were logged in from a device</p>
+
+
+                      <div  class="col-md-12">
+                        <div class="pro_notify" >
+                          
+                          <span   style="font-size: 11px;">25/09/2023 </span>
+                          <span></span>
+                          <span   style="font-size: 11px;"> 10:45 a.m</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+                <hr>
+  
+                
+  
+              </div>
+            </div>
+  
+            
+            
+          </div>
+        </div>
+      </div>
+      </div>
+          {% endif %}
+  
+  
+    
+      
+  
+   
+          
+   <!-- ======= Footer ======= -->
+  <footer id="footer">
+  
+    <div class="footer-top">
+  
+      <div class="container">
+  
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+  
+      </div>
+    </div>
+  
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Foxdale</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="#">Akash.R.B</a>
+      </div>
+    </div>
+  </footer><!-- End Footer --> 
+  
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+  <!-- Vendor JS Files -->
+  <!-- <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script> -->
+  
+  <!-- Template Main JS File -->
+  <!-- <script src="{% static 'assets/js/main.js' %}"></script>
+    -->
+
+      <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  </body>
+  </html>
+  
+  
+  
